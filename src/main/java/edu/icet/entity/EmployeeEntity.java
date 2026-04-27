@@ -1,5 +1,6 @@
 package edu.icet.entity;
 
+import edu.icet.util.DepartmentType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
