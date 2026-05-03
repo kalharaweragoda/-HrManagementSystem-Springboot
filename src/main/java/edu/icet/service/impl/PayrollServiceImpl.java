@@ -45,4 +45,27 @@ public class PayrollServiceImpl implements PayrollService {
         return null;
     }
 
+    @Override
+    public Boolean deletePayroll(Integer id) {
+        if (payrollRepository.existsById(id)) {
+            payrollRepository.deleteById(id);
+            return !payrollRepository.existsById(id);
+        }
+        return false;
+    }
+
+    private PayrollSendDto getPayrollSendDto(PayrollDto payrollDto, EmployeeDto employee) {
+        return new PayrollSendDto(
+                payrollDto.getId(),
+                employee,
+                payrollDto.getPayDate(),
+                payrollDto.getBasicSalary(),
+                payrollDto.getAllowances(),
+                payrollDto.getDeductions(),
+                payrollDto.getNetSalary(),
+                payrollDto.getCreatedAt(),
+                payrollDto.getUpdatedAt()
+        );
+    }
+
 }

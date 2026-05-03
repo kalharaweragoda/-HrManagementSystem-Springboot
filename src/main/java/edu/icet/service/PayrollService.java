@@ -7,4 +7,6 @@ public interface PayrollService {
     PayrollSendDto getPayrollById(Integer id);
 
     PayrollSendDto updatePayroll(Integer id, PayrollDto payrollDto);
+
+    Boolean deletePayroll(Integer id);
 }
