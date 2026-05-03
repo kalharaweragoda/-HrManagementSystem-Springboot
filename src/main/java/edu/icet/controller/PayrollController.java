@@ -38,4 +38,14 @@ public class PayrollController {
         return ResponseEntity.ok(payrollSendDto);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<PayrollSendDto> updatePayroll(@PathVariable("id") Integer id, @Valid @RequestBody PayrollDto payrollDto) {
+        PayrollSendDto updatedPayroll = payrollService.updatePayroll(id, payrollDto);
+        if (updatedPayroll != null) {
+            return ResponseEntity.ok(updatedPayroll);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
